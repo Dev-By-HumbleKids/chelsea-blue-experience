@@ -38,6 +38,29 @@ All photographs are from Wikimedia Commons and are used under the licences below
 | `trophy-shield` | Seth Whales | CC BY-SA 3.0 | [FA Community Shield.JPG](https://commons.wikimedia.org/wiki/File:FA_Community_Shield.JPG) |
 | `trophy-lc` | FYI2023 | CC0 | [EFL Cup trophy displyed in Liverpool FC museum.jpg](https://commons.wikimedia.org/wiki/File:EFL_Cup_trophy_displyed_in_Liverpool_FC_museum.jpg) |
 | `trophy-usc` | Rafael Curtinaz Severo | CC BY 2.0 | [Troféu da UEFA Super Cup.jpg](https://commons.wikimedia.org/wiki/File:Trof%C3%A9u_da_UEFA_Super_Cup.jpg) |
+| `trophy-fcwc` | The White House | Public domain | [F20250713AH-3842 President Donald Trump and First Lady Melania Trump attend the FIFA Club World Cup Final soccer match.jpg](https://commons.wikimedia.org/wiki/File:F20250713AH-3842_President_Donald_Trump_and_First_Lady_Melania_Trump_attend_the_FIFA_Club_World_Cup_Final_soccer_match.jpg) |
+| `p-martinez` | Bryan Berlin | CC BY-SA 4.0 | [Emiliano Martinez Argentina v Spain 19 July 2026-269.jpg](https://commons.wikimedia.org/wiki/File:Emiliano_Martinez_Argentina_v_Spain_19_July_2026-269.jpg) |
+| `p-sharman-lowe` | Mtaylor848 | CC BY-SA 4.0 | [Doncaster Rovers v Harrogate Town (25th January 2025) 013.jpg](https://commons.wikimedia.org/wiki/File:Doncaster_Rovers_v_Harrogate_Town_(25th_January_2025)_013.jpg) |
+| `p-penders` | Bryan Berlin | CC BY-SA 4.0 | [Mike Penders Belgium v USA 6 July 2026-155.jpg](https://commons.wikimedia.org/wiki/File:Mike_Penders_Belgium_v_USA_6_July_2026-155.jpg) |
+| `p-lacroix` | Bryan Berlin | CC BY-SA 4.0 | [Maxence Lacroix France v Norway 26 June 26-031 (cropped).jpg](https://commons.wikimedia.org/wiki/File:Maxence_Lacroix_France_v_Norway_26_June_26-031_(cropped).jpg) |
+| `p-colwill` | The White House | Public domain | [Levi Colwill FIFA Club World Cup final extraction.jpg](https://commons.wikimedia.org/wiki/File:Levi_Colwill_FIFA_Club_World_Cup_final_extraction.jpg) |
+| `p-hato` | Oscar0123 | CC BY 4.0 | [Jorrel Hato Chelsea AC Milan warm up.jpg](https://commons.wikimedia.org/wiki/File:Jorrel_Hato_Chelsea_AC_Milan_warm_up.jpg) |
+| `p-james` | Bryan Berlin | CC BY-SA 4.0 | [Reece James England v Ghana 23 June 2026-248 (cropped).jpg](https://commons.wikimedia.org/wiki/File:Reece_James_England_v_Ghana_23_June_2026-248_(cropped).jpg) |
+| `p-gusto` | Bryan Berlin | CC BY-SA 4.0 | [Malo Gusto France v Senegal 16 June 2026-399.jpg](https://commons.wikimedia.org/wiki/File:Malo_Gusto_France_v_Senegal_16_June_2026-399.jpg) |
+| `p-anselmino` | Oscar0123 | CC BY 4.0 | [Aaron Anselmino Chelsea AC Milan warm up.jpg](https://commons.wikimedia.org/wiki/File:Aaron_Anselmino_Chelsea_AC_Milan_warm_up.jpg) |
+| `p-barco` | Bryan Berlin | CC BY-SA 4.0 | [Valentin Barco Argentina v Egypt 7 July 2026-028.jpg](https://commons.wikimedia.org/wiki/File:Valentin_Barco_Argentina_v_Egypt_7_July_2026-028.jpg) |
+| `p-henderson` | Bryan Berlin | CC BY-SA 4.0 | [Jordan Henderson England v Ghana 23 June 2026-029 (cropped).jpg](https://commons.wikimedia.org/wiki/File:Jordan_Henderson_England_v_Ghana_23_June_2026-029_(cropped).jpg) |
+| `p-rogers` | Bryan Berlin | CC BY-SA 4.0 | [Morgan Rogers England v Panama 27 June 26-144 (cropped).jpg](https://commons.wikimedia.org/wiki/File:Morgan_Rogers_England_v_Panama_27_June_26-144_(cropped).jpg) |
+| `p-caicedo` | Bryan Berlin | CC BY-SA 4.0 | [Moises Caicedo Ecuador v Germany 25 June 2026-051 (cropped).jpg](https://commons.wikimedia.org/wiki/File:Moises_Caicedo_Ecuador_v_Germany_25_June_2026-051_(cropped).jpg) |
+| `p-lavia` | Timmy96 | CC0 | [Roméo Lavia 20042025 (1) cropped.jpg](https://commons.wikimedia.org/wiki/File:Rom%C3%A9o_Lavia_20042025_(1)_cropped.jpg) |
+| `p-neto` | Bryan Berlin | CC BY-SA 4.0 | [Pedro Neto Croatia v Portugal 2 July 2026-113.jpg](https://commons.wikimedia.org/wiki/File:Pedro_Neto_Croatia_v_Portugal_2_July_2026-113.jpg) |
+| `p-joao-pedro` | DHSgov | Public domain | [João Pedro, 2025 FIFA Club World Cup final (54654843615).jpg](https://commons.wikimedia.org/wiki/File:Jo%C3%A3o_Pedro%2C_2025_FIFA_Club_World_Cup_final_(54654843615).jpg) |
+| `p-welbeck` | Кирилл Венедиктов | CC BY-SA 3.0 | [Danny Welbeck 2018-06-13 1.jpg](https://commons.wikimedia.org/wiki/File:Danny_Welbeck_2018-06-13_1.jpg) |
+| `p-emegha` | Werner100359 | CC BY-SA 4.0 | [FC RB Salzburg gegen SK Sturm Graz(2023-05-21) 35 (Emanuel Emegha).jpg](https://commons.wikimedia.org/wiki/File:FC_RB_Salzburg_gegen_SK_Sturm_Graz(2023-05-21)_35_(Emanuel_Emegha).jpg) |
+| `p-estevao` | NullReason | CC BY-SA 4.0 | [Estevao-Palmeiras-Liverpool-abr24 (cropped).jpg](https://commons.wikimedia.org/wiki/File:Estevao-Palmeiras-Liverpool-abr24_(cropped).jpg) |
+| `p-alonso` | DONOSTIA KULTURA | CC BY-SA 2.0 | [Los Caminos del fútbol. Xabi Alonso (39666778464) (cropped).jpg](https://commons.wikimedia.org/wiki/File:Los_Caminos_del_f%C3%BAtbol._Xabi_Alonso_(39666778464)_(cropped).jpg) |
+| `l-wise` | @cfcunofficial (Chelsea Debs) London fro | CC BY-SA 2.0 | [Chelsea Legends 1 Inter Forever 4 (28453485028) (cropped).jpg](https://commons.wikimedia.org/wiki/File:Chelsea_Legends_1_Inter_Forever_4_(28453485028)_(cropped).jpg) |
+| `l-tambling` | John Dobson | CC BY-SA 2.0 | [Bobby Tambling (cropped).jpg](https://commons.wikimedia.org/wiki/File:Bobby_Tambling_(cropped).jpg) |
 
 ## Club crests (private builds only)
 

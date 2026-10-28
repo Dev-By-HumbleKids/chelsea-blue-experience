@@ -155,7 +155,7 @@ export function HeroSequence() {
           </Suspense>
         )}
         <motion.div className="pointer-events-none absolute inset-0 bg-midnight" style={{ opacity: dim }} />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(11,23,54,0.7)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(23,36,64,0.6)_100%)]" />
         <div className="grain pointer-events-none absolute inset-0" />
 
         <div className="container-x relative flex h-full items-center">

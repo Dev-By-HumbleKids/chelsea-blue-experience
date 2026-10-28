@@ -24,8 +24,8 @@
   }
   body {
     @apply bg-midnight font-sans text-[15px] leading-relaxed text-ivory;
-    background-image: radial-gradient(1200px 700px at 85% -10%, rgba(42, 107, 196, 0.28), transparent 60%),
-      radial-gradient(900px 600px at -10% 40%, rgba(3, 70, 148, 0.3), transparent 60%);
+    background-image: radial-gradient(1200px 700px at 85% -10%, rgba(91, 143, 214, 0.16), transparent 60%),
+      radial-gradient(900px 600px at -10% 40%, rgba(91, 143, 214, 0.12), transparent 60%);
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
   }

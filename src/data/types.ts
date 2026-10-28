@@ -10,7 +10,7 @@ export interface Source {
   url: string;
 }
 
-export type MediaLicense = 'CC0' | 'CC BY 2.0' | 'CC BY-SA 2.0' | 'CC BY-SA 3.0' | 'CC BY-SA 3.0 de' | 'CC BY-SA 4.0' | 'CC BY 4.0' | 'Original' | 'Restricted';
+export type MediaLicense = 'CC0' | 'Public domain' | 'CC BY 2.0' | 'CC BY-SA 2.0' | 'CC BY-SA 3.0' | 'CC BY-SA 3.0 de' | 'CC BY-SA 4.0' | 'CC BY 4.0' | 'Original' | 'Restricted';
 
 export interface MediaAsset {
   id: string;

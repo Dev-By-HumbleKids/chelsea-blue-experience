@@ -44,8 +44,31 @@ const rows: Row[] = [
 
 const slugify = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
+const PHOTOS: Record<string, string> = {
+  'emiliano-martinez': 'p-martinez',
+  'teddy-sharman-lowe': 'p-sharman-lowe',
+  'mike-penders': 'p-penders',
+  'maxence-lacroix': 'p-lacroix',
+  'levi-colwill': 'p-colwill',
+  'jorrel-hato': 'p-hato',
+  'reece-james': 'p-james',
+  'malo-gusto': 'p-gusto',
+  'aaron-anselmino': 'p-anselmino',
+  'valentin-barco': 'p-barco',
+  'jordan-henderson': 'p-henderson',
+  'morgan-rogers': 'p-rogers',
+  'moises-caicedo': 'p-caicedo',
+  'romeo-lavia': 'p-lavia',
+  'pedro-neto': 'p-neto',
+  'joao-pedro': 'p-joao-pedro',
+  'danny-welbeck': 'p-welbeck',
+  'emmanuel-emegha': 'p-emegha',
+  'estevao': 'p-estevao'
+};
+
 export const SQUAD: SquadPlayer[] = rows.map(([number, name, position, role, nationality, extra]) => ({
   slug: slugify(name),
+  image: PHOTOS[slugify(name)],
   number,
   name,
   position,
@@ -59,6 +82,7 @@ export const POSITIONS: Position[] = ['Goalkeeper', 'Defender', 'Midfielder', 'F
 export const MANAGER = {
   name: 'Xabi Alonso',
   title: 'Manager',
+  image: 'p-alonso',
   appointed: '2026-05-17',
   note: 'Appointed on a four-year contract, taking charge on 1 July 2026.',
 };

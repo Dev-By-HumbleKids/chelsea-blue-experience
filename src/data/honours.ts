@@ -22,7 +22,7 @@ export const HONOURS: Honour[] = [
     keyPlayers: ['didier-drogba', 'petr-cech', 'frank-lampard', 'john-terry'], sources: [CFC, UEFA, WIKI],
   },
   {
-    slug: 'fifa-club-world-cup', name: 'FIFA Club World Cup', shortName: 'Club World Cup', category: 'Worldwide', count: 2,
+    slug: 'fifa-club-world-cup', image: 'trophy-fcwc', name: 'FIFA Club World Cup', shortName: 'Club World Cup', category: 'Worldwide', count: 2,
     seasons: ['2021', '2025'],
     description: 'Champions of the world twice: first in Abu Dhabi in February 2022, then at the first expanded 32-team tournament in the United States in July 2025.',
     finals: [
@@ -118,13 +118,13 @@ export const HONOURS: Honour[] = [
     sources: [WIKI],
   },
   {
-    slug: 'second-division', name: 'Second Division', shortName: 'Second Division', category: 'Domestic League', count: 2,
+    slug: 'second-division', image: 'shed-wall', name: 'Second Division', shortName: 'Second Division', category: 'Domestic League', count: 2,
     seasons: ['1983–84', '1988–89'],
     description: 'Promotion-winning title seasons that rebuilt the club before its modern rise.',
     sources: [WIKI],
   },
   {
-    slug: 'full-members-cup', name: 'Full Members’ Cup', shortName: 'Full Members’ Cup', category: 'Domestic Cup', count: 2,
+    slug: 'full-members-cup', image: 'ank-25', name: 'Full Members’ Cup', shortName: 'Full Members’ Cup', category: 'Domestic Cup', count: 2,
     seasons: ['1985–86', '1989–90'],
     description: 'Two Wembley wins in the short-lived Full Members’ Cup.',
     sources: [WIKI],

@@ -56,7 +56,7 @@ export default function SquadPage() {
 
       <section className="container-x">
         <Reveal className="mb-12 grid items-center gap-6 rounded-[28px] bg-gradient-to-r from-royal-700 to-midnight-800 p-6 ring-1 ring-white/10 sm:grid-cols-[auto_1fr] sm:p-8">
-          <span className="grid h-20 w-20 place-items-center rounded-full bg-gold font-display text-3xl text-midnight">XA</span>
+          {MANAGER.image ? <Img id={MANAGER.image} className="h-24 w-24 rounded-full ring-2 ring-gold/70" /> : <span className="grid h-20 w-20 place-items-center rounded-full bg-gold font-display text-3xl text-midnight">XA</span>}
           <div>
             <p className="eyebrow">Manager</p>
             <p className="mt-1 font-display text-4xl tracking-wide">{MANAGER.name}</p>

@@ -145,7 +145,7 @@ export const LEGENDS: Legend[] = [
       { year: '1998', text: 'Lifts the Cup Winners’ Cup in Stockholm.' },
     ],
     honours: ['fa-cup', 'cup-winners-cup', 'league-cup', 'super-cup'],
-    related: ['gianfranco-zola'], sources: [wiki('Dennis_Wise', 'Dennis Wise')],
+    image: 'l-wise', related: ['gianfranco-zola'], sources: [wiki('Dennis_Wise', 'Dennis Wise')],
   },
   {
     slug: 'ron-harris', name: 'Ron Harris', position: 'Defender', era: 'First Glory', years: '1961–1980',
@@ -169,7 +169,7 @@ export const LEGENDS: Legend[] = [
     achievements: ['202 goals — club record until 2013', 'League Cup 1965'],
     moments: [{ year: '1965', text: 'Wins the League Cup, the club’s first cup trophy.' }],
     honours: ['league-cup'],
-    related: ['frank-lampard', 'peter-osgood'], sources: [wiki('Bobby_Tambling', 'Bobby Tambling')],
+    image: 'l-tambling', related: ['frank-lampard', 'peter-osgood'], sources: [wiki('Bobby_Tambling', 'Bobby Tambling')],
   },
   {
     slug: 'roy-bentley', name: 'Roy Bentley', position: 'Centre-forward', era: 'First Glory', years: '1948–1956',
