@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens. Tailwind holds the palette; these cover motion and surfaces used from plain CSS. */
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-base: 320ms;
+  --dur-slow: 700ms;
+  --nav-h: 72px;
+  --glow-royal: 0 0 0 1px rgba(91, 143, 214, 0.25), 0 20px 60px -20px rgba(3, 70, 148, 0.65);
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    @apply bg-midnight text-ivory antialiased;
+    scroll-behavior: smooth;
+  }
+  html,
+  body {
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-midnight font-sans text-[15px] leading-relaxed text-ivory;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    @apply bg-royal text-ivory;
+  }
+  :focus-visible {
+    outline: 2px solid #e2c88e;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply font-sans text-[11px] font-semibold uppercase tracking-mega text-silver;
+  }
+  .display {
+    @apply font-display uppercase leading-[0.88] tracking-[0.01em];
+  }
+  .surface {
+    @apply bg-midnight-800/70 ring-1 ring-white/[0.06];
+  }
+  .hairline {
+    @apply border-white/[0.08];
+  }
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--dur-base) var(--ease-out);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .text-gold-sheen {
+    background: linear-gradient(100deg, #b38c46 0%, #f1dcaa 45%, #c9a45c 60%, #8f6d33 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .stroke-text {
+    -webkit-text-stroke: 1px rgba(245, 242, 234, 0.35);
+    color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.hotspot-ring {
+  animation: pulse-ring 1.8s var(--ease-out) infinite;
+}
+
+@media print {
+  header, footer, .no-print { display: none !important; }
+  body { background: #fff; color: #000; }
+}
