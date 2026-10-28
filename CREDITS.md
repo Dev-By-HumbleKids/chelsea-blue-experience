@@ -29,10 +29,22 @@ All photographs are from Wikimedia Commons and are used under the licences below
 | `hazard` | CFCUnofficial (Chelsea Debs) | CC BY-SA 2.0 | [Eden Hazard 2017.jpg](https://commons.wikimedia.org/wiki/File:Eden_Hazard_2017.jpg) |
 | `zola` | CFCUnofficial (Chelsea Debs) | CC BY-SA 2.0 | [Zola 2018 (cropped).jpg](https://commons.wikimedia.org/wiki/File:Zola_2018_(cropped).jpg) |
 | `palmer` | Timmy96 | CC0 | [Cole Palmer 20042025 (1).jpg](https://commons.wikimedia.org/wiki/File:Cole_Palmer_20042025_(1).jpg) |
+| `trophy-ucl` | Melon5541 | CC BY-SA 4.0 | [Champions league trophy.jpg](https://commons.wikimedia.org/wiki/File:Champions_league_trophy.jpg) |
+| `trophy-pl` | Ank Kumar | CC BY-SA 4.0 | [Premier League Trophy at Manchester's National Football Museum (Ank Kumar) 01.jpg](https://commons.wikimedia.org/wiki/File:Premier_League_Trophy_at_Manchester's_National_Football_Museum_(Ank_Kumar)_01.jpg) |
+| `trophy-fa` | Carlos yo | CC BY-SA 4.0 | [The FA Cup Trophy.jpg](https://commons.wikimedia.org/wiki/File:The_FA_Cup_Trophy.jpg) |
+| `trophy-uel` | Damine178 | CC BY-SA 4.0 | [Europa league trophy.jpg](https://commons.wikimedia.org/wiki/File:Europa_league_trophy.jpg) |
+| `trophy-uecl` | Totti | CC BY-SA 4.0 | [UEFA Europa Conference League Trophy.jpg](https://commons.wikimedia.org/wiki/File:UEFA_Europa_Conference_League_Trophy.jpg) |
+| `trophy-cwc` | Ank Kumar | CC BY-SA 4.0 | [UEFA Cup Winners' Cup trophy at Manchester National Football Museum (Ank Kumar) 01.jpg](https://commons.wikimedia.org/wiki/File:UEFA_Cup_Winners'_Cup_trophy_at_Manchester_National_Football_Museum_(Ank_Kumar)_01.jpg) |
+| `trophy-shield` | Seth Whales | CC BY-SA 3.0 | [FA Community Shield.JPG](https://commons.wikimedia.org/wiki/File:FA_Community_Shield.JPG) |
+| `trophy-lc` | FYI2023 | CC0 | [EFL Cup trophy displyed in Liverpool FC museum.jpg](https://commons.wikimedia.org/wiki/File:EFL_Cup_trophy_displyed_in_Liverpool_FC_museum.jpg) |
+| `trophy-usc` | Rafael Curtinaz Severo | CC BY 2.0 | [Troféu da UEFA Super Cup.jpg](https://commons.wikimedia.org/wiki/File:Trof%C3%A9u_da_UEFA_Super_Cup.jpg) |
+
+## Club crests (private builds only)
+
+Club crests, including the Chelsea FC crest, are registered trademarks of their clubs. They are downloaded from English Wikipedia (non-free files) into `public/media/restricted/`, which is git-ignored, and are only shown when `VITE_PUBLIC_SAFE=false` (see `.env.local`). Public builds fall back to an original lion emblem and text badges automatically.
 
 ## Not reproduced
 
-- Chelsea FC crest and other club crests (registered trademarks). The site uses an original lion emblem and text badges instead.
 - Official club photography, video and kit designs. Kits are original flat illustrations based on documented colours.
 
 ## Audio

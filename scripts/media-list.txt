@@ -23,3 +23,12 @@ hazard|Eden Hazard 2017.jpg
 zola|Zola 2018 (cropped).jpg
 palmer|Cole Palmer 20042025 (1).jpg
 spurs-2016|Chelsea v Spurs 2 May 2016, Spurs scored.jpg
+trophy-ucl|Champions league trophy.jpg
+trophy-pl|Premier League Trophy at Manchester's National Football Museum (Ank Kumar) 01.jpg
+trophy-fa|The FA Cup Trophy.jpg
+trophy-uel|Europa league trophy.jpg
+trophy-uecl|UEFA Europa Conference League Trophy.jpg
+trophy-cwc|UEFA Cup Winners' Cup trophy at Manchester National Football Museum (Ank Kumar) 01.jpg
+trophy-shield|FA Community Shield.JPG
+trophy-lc|EFL Cup trophy displyed in Liverpool FC museum.jpg
+trophy-usc|Troféu da UEFA Super Cup.jpg

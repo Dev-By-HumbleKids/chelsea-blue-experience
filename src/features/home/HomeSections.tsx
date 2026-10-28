@@ -7,7 +7,7 @@ import { HONOURS, MAJOR_HONOUR_SLUGS, MAJOR_TROPHY_COUNT } from '@/data/honours'
 import { LEGENDS } from '@/data/legends';
 import { NEWS } from '@/data/news';
 import { fmtDate } from '@/lib/format';
-import { TrophyIcon } from '@/features/heritage/TrophyIcon';
+import { TrophyArt } from '@/features/heritage/TrophyIcon';
 import { TiltCard } from '@/components/TiltCard';
 
 export function Marquee({ text = 'LONDON IS BLUE', className }: { text?: string; className?: string }) {
@@ -98,12 +98,13 @@ export function TrophyShowcase() {
           {majors.map((h, i) => (
             <Reveal key={h.slug} delay={(i % 3) * 0.06}>
               <li className="h-full">
-                <Link to={`/trophies/${h.slug}`} className="group relative flex h-full flex-col justify-between gap-8 bg-midnight p-6 transition-colors hover:bg-midnight-800 sm:p-8">
-                  <div className="flex items-start justify-between">
-                    <TrophyIcon slug={h.slug} className="h-14 w-14 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-105 sm:h-16 sm:w-16" />
-                    <span className="font-display text-6xl leading-none text-gold-sheen sm:text-7xl">{h.count}</span>
+                <Link to={`/trophies/${h.slug}`} className="group relative flex aspect-[4/5] h-full flex-col justify-between overflow-hidden bg-midnight p-5 sm:p-7">
+                  <TrophyArt slug={h.slug} image={h.image} className="absolute inset-0 h-full w-full opacity-70 transition-all duration-700 group-hover:scale-105 group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent" />
+                  <div className="relative flex items-start justify-end">
+                    <span className="font-display text-6xl leading-none text-gold-sheen drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] sm:text-7xl">{h.count}</span>
                   </div>
-                  <div>
+                  <div className="relative">
                     <p className="font-display text-2xl tracking-wide sm:text-3xl">{h.shortName}</p>
                     <p className="mt-1 text-xs text-silver">{h.seasons.slice(-3).join(' · ')}</p>
                   </div>

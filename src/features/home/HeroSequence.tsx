@@ -111,7 +111,7 @@ export function HeroSequence() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const barScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const hintOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
-  const dim = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.55, 0.35, 0.35, 0.7]);
+  const dim = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.28, 0.12, 0.12, 0.45]);
 
   useEffect(() => {
     if (reduce) {
@@ -155,7 +155,7 @@ export function HeroSequence() {
           </Suspense>
         )}
         <motion.div className="pointer-events-none absolute inset-0 bg-midnight" style={{ opacity: dim }} />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(5,11,26,0.85)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgba(11,23,54,0.7)_100%)]" />
         <div className="grain pointer-events-none absolute inset-0" />
 
         <div className="container-x relative flex h-full items-center">

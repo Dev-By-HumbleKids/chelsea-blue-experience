@@ -14,6 +14,34 @@ function asset(id: string, alt: string, credit: string, license: MediaLicense, c
   return { id, src: `${base}media/${id}.webp`, alt, credit, license, sourceUrl: commons(commonsFile), focus };
 }
 
+/**
+ * Club crests are registered trademarks. They are only used in private builds
+ * (VITE_PUBLIC_SAFE=false) and live in public/media/restricted, which is git-ignored.
+ */
+const CRESTS: Record<string, [club: string, file: string]> = {
+  CHE: ['Chelsea FC', 'Chelsea FC.svg'],
+  FUL: ['Fulham', 'Fulham FC.svg'],
+  LUT: ['Luton Town', 'Luton Town logo.svg'],
+  BHA: ['Brighton & Hove Albion', 'Brighton and Hove Albion FC crest.svg'],
+  ARS: ['Arsenal', 'Arsenal FC.svg'],
+  LEE: ['Leeds United', 'Leeds United F.C. logo.svg'],
+  HUL: ['Hull City', 'Hull City A.F.C. logo.svg'],
+  BRE: ['Brentford', 'Brentford FC crest.svg'],
+  BOU: ['AFC Bournemouth', 'AFC Bournemouth (2013).svg'],
+  EVE: ['Everton', 'Everton FC logo.svg'],
+  TOT: ['Tottenham Hotspur', 'Tottenham Hotspur.svg'],
+  LIV: ['Liverpool', 'Liverpool FC.svg'],
+  MUN: ['Manchester United', 'Manchester United FC crest.svg'],
+  SUN: ['Sunderland', 'Logo Sunderland.svg'],
+  NFO: ['Nottingham Forest', 'Nottingham Forest F.C. logo.svg'],
+  CRY: ['Crystal Palace', 'Crystal Palace FC logo (2022).svg'],
+  MCI: ['Manchester City', 'Manchester City FC badge.svg'],
+  AVL: ['Aston Villa', 'Aston Villa FC new crest.svg'],
+  COV: ['Coventry City', 'Coventry City FC crest.svg'],
+  IPS: ['Ipswich Town', 'Ipswich Town.svg'],
+  NEW: ['Newcastle United', 'Newcastle United FC 2026 crest.svg'],
+};
+
 const ALL: MediaAsset[] = [
   asset('bowl-spurs', 'Stamford Bridge under floodlights during Chelsea v Tottenham', 'Brian Minkoff – London Pixels', 'CC BY-SA 3.0', 'Stamford Bridge Chelsea v Spurs.jpg'),
   asset('fans-psg-2014', 'Chelsea supporters in the stands at Stamford Bridge, April 2014', 'Ben Sutherland', 'CC BY 2.0', 'Chelsea FC v Paris Saint-Germain, 8 April 2014 (6).jpg'),
@@ -40,9 +68,29 @@ const ALL: MediaAsset[] = [
   asset('hazard', 'Eden Hazard playing for Chelsea, 2017', 'CFCUnofficial (Chelsea Debs)', 'CC BY-SA 2.0', 'Eden Hazard 2017.jpg', '50% 25%'),
   asset('zola', 'Gianfranco Zola at Stamford Bridge, 2018', 'CFCUnofficial (Chelsea Debs)', 'CC BY-SA 2.0', 'Zola 2018 (cropped).jpg', '50% 25%'),
   asset('palmer', 'Cole Palmer in Chelsea kit, April 2025', 'Timmy96', 'CC0', 'Cole Palmer 20042025 (1).jpg', '50% 18%'),
+  asset('trophy-ucl', 'The UEFA Champions League trophy', 'Melon5541', 'CC BY-SA 4.0', 'Champions league trophy.jpg', '50% 40%'),
+  asset('trophy-pl', 'The Premier League trophy on display', 'Ank Kumar', 'CC BY-SA 4.0', "Premier League Trophy at Manchester's National Football Museum (Ank Kumar) 01.jpg", '50% 45%'),
+  asset('trophy-fa', 'The FA Cup trophy', 'Carlos yo', 'CC BY-SA 4.0', 'The FA Cup Trophy.jpg', '50% 45%'),
+  asset('trophy-uel', 'The UEFA Europa League trophy on display', 'Damine178', 'CC BY-SA 4.0', 'Europa league trophy.jpg', '78% 60%'),
+  asset('trophy-uecl', 'The UEFA Conference League trophy', 'Totti', 'CC BY-SA 4.0', 'UEFA Europa Conference League Trophy.jpg', '50% 45%'),
+  asset('trophy-cwc', 'The UEFA Cup Winners’ Cup trophy on display', 'Ank Kumar', 'CC BY-SA 4.0', "UEFA Cup Winners' Cup trophy at Manchester National Football Museum (Ank Kumar) 01.jpg", '50% 55%'),
+  asset('trophy-shield', 'The FA Community Shield', 'Seth Whales', 'CC BY-SA 3.0', 'FA Community Shield.JPG'),
+  asset('trophy-lc', 'The League Cup trophy on display', 'FYI2023', 'CC0', 'EFL Cup trophy displyed in Liverpool FC museum.jpg', '50% 55%'),
+  asset('trophy-usc', 'The UEFA Super Cup trophy', 'Rafael Curtinaz Severo', 'CC BY 2.0', 'Troféu da UEFA Super Cup.jpg', '50% 45%'),
+  ...Object.entries(CRESTS).map(([code, [club, file]]) => ({
+    id: `crest-${code}`,
+    src: `${base}media/restricted/crest-${code}.png`,
+    alt: `${club} crest`,
+    credit: `${club} (trademark)`,
+    license: 'Restricted' as const,
+    sourceUrl: `https://en.wikipedia.org/wiki/File:${file.replace(/ /g, '_')}`,
+  })),
 ];
 
 const publicSafe = import.meta.env.VITE_PUBLIC_SAFE !== 'false';
+
+/** True for public builds: no trademarked crests, only CC / original media. */
+export const PUBLIC_SAFE = publicSafe;
 
 export const MEDIA: Record<string, MediaAsset> = Object.fromEntries(
   ALL.filter((m) => !(publicSafe && m.license === 'Restricted')).map((m) => [m.id, m]),

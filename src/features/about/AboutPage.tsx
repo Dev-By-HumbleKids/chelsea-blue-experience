@@ -1,5 +1,5 @@
 import { PageHero, ProvenanceTag, SectionHeading } from '@/components/ui';
-import { ALL_MEDIA } from '@/data/media';
+import { ALL_MEDIA, PUBLIC_SAFE } from '@/data/media';
 import { SEASON_SOURCES, SNAPSHOT_DATE } from '@/data/season';
 import { fmtDate } from '@/lib/format';
 import { useMeta } from '@/lib/hooks';
@@ -65,7 +65,7 @@ export default function AboutPage() {
         </section>
 
         <section id="credits" className="scroll-mt-28">
-          <SectionHeading eyebrow="Image credits" title="Photography" intro="All photographs come from Wikimedia Commons under the Creative Commons licences listed. Club crests are not reproduced; the site emblem is an original design." />
+          <SectionHeading eyebrow="Image credits" title="Photography" intro={PUBLIC_SAFE ? 'All photographs come from Wikimedia Commons under the Creative Commons licences listed. Club crests are not reproduced; the site emblem is an original design.' : 'Photographs come from Wikimedia Commons under the Creative Commons licences listed. Club crests are trademarks of their clubs and appear only in this private preview build; public builds replace them automatically.'} />
           <ul className="divide-y divide-white/[0.06] rounded-[24px] ring-1 ring-white/[0.06]">
             {ALL_MEDIA.map((m) => (
               <li key={m.id} className="flex flex-wrap items-center gap-x-4 gap-y-1 px-5 py-3 text-sm">

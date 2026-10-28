@@ -4,7 +4,7 @@ import { EmptyState, Img, LinkButton, Reveal, Sources } from '@/components/ui';
 import { HONOURS } from '@/data/honours';
 import { LEGENDS } from '@/data/legends';
 import { useMeta } from '@/lib/hooks';
-import { TrophyIcon } from './TrophyIcon';
+import { TrophyArt } from './TrophyIcon';
 
 export default function TrophyDetailPage() {
   const { slug } = useParams();
@@ -31,7 +31,9 @@ export default function TrophyDetailPage() {
           </Link>
           <div className="mt-8 grid items-center gap-10 md:grid-cols-[auto_1fr]">
             <Reveal>
-              <TrophyIcon slug={h.slug} className="mx-auto h-56 w-56 drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)] md:h-72 md:w-72" />
+              <div className="mx-auto aspect-[3/4] w-64 overflow-hidden rounded-[28px] shadow-[0_40px_80px_-30px_rgba(201,164,92,0.5)] ring-1 ring-gold/30 md:w-80">
+                <TrophyArt slug={h.slug} image={h.image} className="h-full w-full" iconClassName="h-48 w-48" />
+              </div>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="eyebrow">{h.category}</p>

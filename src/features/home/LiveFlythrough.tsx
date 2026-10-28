@@ -2,6 +2,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import type { MotionValue } from 'framer-motion';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { Effects } from '@/features/stadium/Effects';
 import { StadiumModel } from '@/features/stadium/StadiumModel';
 
 /** Camera keyframes for the scroll fly-through: aerial London → over the Shed → down to pitchside. */
@@ -59,17 +60,17 @@ export default function LiveFlythrough({ progress }: { progress: MotionValue<num
       <Canvas
         frameloop={visible ? 'always' : 'never'}
         dpr={[1, 1.6]}
-        camera={{ fov: 42, near: 0.5, far: 1200, position: [0, 170, 280] }}
+        camera={{ fov: 42, near: 0.5, far: 2000, position: [0, 170, 280] }}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
         onCreated={({ gl, scene }) => {
           gl.toneMapping = THREE.ACESFilmicToneMapping;
-          gl.toneMappingExposure = 1.25;
-          scene.background = new THREE.Color('#040916');
-          scene.fog = new THREE.Fog('#040916', 220, 620);
+          gl.toneMappingExposure = 1.1;
+          scene.fog = new THREE.Fog('#4a6fb8', 380, 1100);
         }}
       >
         <StadiumModel />
         <Rig progress={progress} />
+        <Effects />
       </Canvas>
     </div>
   );

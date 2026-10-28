@@ -121,6 +121,8 @@ export interface Honour {
   description: string;
   finals?: FinalMatch[];
   keyPlayers?: string[];
+  /** Media id of a photograph of the trophy. */
+  image?: string;
   sources: Source[];
 }
 

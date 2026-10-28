@@ -1,8 +1,14 @@
+import { media } from '@/data/media';
+
 /**
- * Original project emblem: a lion-head mark inside a roundel. Deliberately NOT the Chelsea FC
- * crest (a registered trademark) — it only nods to the club's lion heritage.
+ * Site emblem. Private builds show the real Chelsea FC crest (a registered trademark, kept out of
+ * public builds); public builds fall back to an original lion-head roundel.
  */
 export function Emblem({ size = 40, className }: { size?: number; className?: string }) {
+  const crest = media('crest-CHE');
+  if (crest) {
+    return <img src={crest.src} alt="Chelsea FC crest" width={size} height={size} className={className} style={{ objectFit: 'contain' }} />;
+  }
   return (
     <svg width={size} height={size} viewBox="0 0 64 64" className={className} role="img" aria-label="The Blue Experience emblem">
       <defs>

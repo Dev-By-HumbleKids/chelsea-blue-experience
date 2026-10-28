@@ -55,7 +55,7 @@ Copy `.env.example` to `.env` to change settings:
 | Variable | Default | Purpose |
 |---|---|---|
 | `VITE_DATA_PROVIDER` | `snapshot` | Data source. Only the verified snapshot ships today. |
-| `VITE_PUBLIC_SAFE` | `true` | Drop media marked `Restricted` (use `false` only for private builds). |
+| `VITE_PUBLIC_SAFE` | `true` | Drop media marked `Restricted`. Private builds set `false` in `.env.local` to show real club crests from `public/media/restricted/` (git-ignored, fetched from Wikipedia). |
 | `VITE_SITE_URL` | — | Absolute URL for canonical / Open Graph tags. |
 
 Set `BASE=/repo-name/` when building for a GitHub Pages sub-path.

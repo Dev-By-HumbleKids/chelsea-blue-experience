@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import { TOUR_STOPS, type TourStop } from '@/data/stadium';
 import { cx } from '@/lib/format';
+import { Effects } from './Effects';
 import { StadiumModel } from './StadiumModel';
 
 /** Smoothly flies the camera and orbit target to the active stop, then hands control back to the user. */
@@ -68,21 +69,21 @@ export default function StadiumScene({ stop, onSelect }: { stop: TourStop; onSel
   return (
     <Canvas
       dpr={[1, 1.6]}
-      camera={{ fov: 45, near: 0.5, far: 1400, position: [0, 120, 220] }}
+      camera={{ fov: 45, near: 0.5, far: 2000, position: [0, 120, 220] }}
       gl={{ antialias: true }}
       onCreated={({ gl, scene }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping;
-        gl.toneMappingExposure = 1.25;
-        scene.background = new THREE.Color('#040916');
-        scene.fog = new THREE.Fog('#040916', 240, 640);
+        gl.toneMappingExposure = 1.1;
+        scene.fog = new THREE.Fog('#4a6fb8', 380, 1100);
       }}
     >
-      <StadiumModel />
+      <StadiumModel crowd={false} />
       {TOUR_STOPS.map((s) => (
         <Hotspot key={s.id} stop={s} active={s.id === stop.id} onSelect={() => onSelect(s)} />
       ))}
       <OrbitControls ref={controls} enableDamping dampingFactor={0.08} minDistance={4} maxDistance={320} maxPolarAngle={Math.PI / 2.05} />
       <CameraDirector stop={stop} controls={controls} />
+      <Effects />
     </Canvas>
   );
 }

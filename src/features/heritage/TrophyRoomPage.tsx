@@ -5,7 +5,7 @@ import { PageHero, Pill, Reveal, Sources } from '@/components/ui';
 import { HONOURS, MAJOR_TROPHY_COUNT } from '@/data/honours';
 import type { HonourCategory } from '@/data/types';
 import { useMeta } from '@/lib/hooks';
-import { TrophyIcon } from './TrophyIcon';
+import { TrophyArt } from './TrophyIcon';
 
 const ERA_FILTERS = [
   { id: 'all', label: 'All eras', from: 0, to: 9999 },
@@ -65,8 +65,10 @@ export default function TrophyRoomPage() {
                 to={`/trophies/${h.slug}`}
                 className="group relative flex h-full flex-col overflow-hidden rounded-[28px] bg-gradient-to-b from-midnight-700 to-midnight-800 p-8 ring-1 ring-white/[0.08] transition-shadow hover:shadow-[0_30px_80px_-30px_rgba(201,164,92,0.45)] hover:ring-gold/40"
               >
-                <div className="pointer-events-none absolute left-1/2 top-6 h-40 w-40 -translate-x-1/2 rounded-full bg-gold/10 blur-3xl transition-opacity group-hover:bg-gold/25" aria-hidden />
-                <TrophyIcon slug={h.slug} className="relative mx-auto h-32 w-32 drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] transition-transform duration-700 group-hover:-translate-y-2 group-hover:scale-105" />
+                <div className="relative -mx-8 -mt-8 mb-2 aspect-[4/3] overflow-hidden">
+                  <TrophyArt slug={h.slug} image={h.image} className="h-full w-full transition-transform duration-700 group-hover:scale-105" iconClassName="h-32 w-32" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight-800 via-transparent to-transparent" />
+                </div>
                 <div className="relative mt-6 flex items-end justify-between gap-4">
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-silver">{h.category}</p>

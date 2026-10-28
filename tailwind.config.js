@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         royal: { DEFAULT: '#034694', 400: '#2A6BC4', 300: '#5B8FD6', 600: '#023A7A', 700: '#022D5F' },
-        midnight: { DEFAULT: '#050B1A', 800: '#0A1530', 700: '#0F1D40', 600: '#16295A' },
+        midnight: { DEFAULT: '#0B1736', 800: '#112150', 700: '#172B62', 600: '#1E3776' },
         ivory: { DEFAULT: '#F5F2EA', muted: '#C9CFDC' },
         silver: '#A9B4C6',
         gold: { DEFAULT: '#C9A45C', 300: '#E2C88E' },

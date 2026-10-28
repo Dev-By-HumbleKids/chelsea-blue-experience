@@ -12,7 +12,7 @@ const FIFA: Source = { label: 'FIFA.com — Club World Cup', url: 'https://www.f
 
 export const HONOURS: Honour[] = [
   {
-    slug: 'champions-league', name: 'UEFA Champions League', shortName: 'Champions League', category: 'European', count: 2,
+    slug: 'champions-league', image: 'trophy-ucl', name: 'UEFA Champions League', shortName: 'Champions League', category: 'European', count: 2,
     seasons: ['2011–12', '2020–21'],
     description: 'Europe’s ultimate prize, first won on a night in Munich that turned Chelsea into a global name, and won again nine years later in Porto.',
     finals: [
@@ -32,7 +32,7 @@ export const HONOURS: Honour[] = [
     sources: [CFC, FIFA, WIKI],
   },
   {
-    slug: 'europa-league', name: 'UEFA Europa League', shortName: 'Europa League', category: 'European', count: 2,
+    slug: 'europa-league', image: 'trophy-uel', name: 'UEFA Europa League', shortName: 'Europa League', category: 'European', count: 2,
     seasons: ['2012–13', '2018–19'],
     description: 'Won in Amsterdam with a stoppage-time header, and in Baku with a dominant second-half display against Arsenal.',
     finals: [
@@ -42,7 +42,7 @@ export const HONOURS: Honour[] = [
     keyPlayers: ['eden-hazard', 'frank-lampard', 'petr-cech'], sources: [UEFA, WIKI],
   },
   {
-    slug: 'conference-league', name: 'UEFA Conference League', shortName: 'Conference League', category: 'European', count: 1,
+    slug: 'conference-league', image: 'trophy-uecl', name: 'UEFA Conference League', shortName: 'Conference League', category: 'European', count: 1,
     seasons: ['2024–25'],
     description: 'Won in Wrocław with four second-half goals, making Chelsea the first club to have won the Champions League, Europa League, Conference League, Cup Winners’ Cup and Super Cup.',
     finals: [
@@ -51,7 +51,7 @@ export const HONOURS: Honour[] = [
     sources: [UEFA, WIKI],
   },
   {
-    slug: 'cup-winners-cup', name: 'UEFA Cup Winners’ Cup', shortName: 'Cup Winners’ Cup', category: 'European', count: 2,
+    slug: 'cup-winners-cup', image: 'trophy-cwc', name: 'UEFA Cup Winners’ Cup', shortName: 'Cup Winners’ Cup', category: 'European', count: 2,
     seasons: ['1970–71', '1997–98'],
     description: 'Chelsea’s first European trophy came in an Athens replay against Real Madrid; the second came in Stockholm via a Zola strike seconds after he came on.',
     finals: [
@@ -61,7 +61,7 @@ export const HONOURS: Honour[] = [
     keyPlayers: ['peter-osgood', 'gianfranco-zola', 'dennis-wise'], sources: [UEFA, WIKI],
   },
   {
-    slug: 'super-cup', name: 'UEFA Super Cup', shortName: 'Super Cup', category: 'European', count: 2,
+    slug: 'super-cup', image: 'trophy-usc', name: 'UEFA Super Cup', shortName: 'Super Cup', category: 'European', count: 2,
     seasons: ['1998', '2021'],
     description: 'Beat Real Madrid in Monaco in 1998, and Villarreal on penalties in Belfast in 2021, with Kepa brought on for the shoot-out.',
     finals: [
@@ -71,7 +71,7 @@ export const HONOURS: Honour[] = [
     sources: [UEFA, WIKI],
   },
   {
-    slug: 'league-titles', name: 'English League Champions', shortName: 'League Titles', category: 'Domestic League', count: 6,
+    slug: 'league-titles', image: 'trophy-pl', name: 'English League Champions', shortName: 'League Titles', category: 'Domestic League', count: 6,
     seasons: ['1954–55', '2004–05', '2005–06', '2009–10', '2014–15', '2016–17'],
     description: 'One First Division title in the club’s golden jubilee year and five Premier League crowns, including the record-breaking 95-point season of 2004–05.',
     finals: [
@@ -83,7 +83,7 @@ export const HONOURS: Honour[] = [
     keyPlayers: ['john-terry', 'frank-lampard', 'petr-cech', 'didier-drogba', 'eden-hazard', 'roy-bentley'], sources: [CFC, WIKI],
   },
   {
-    slug: 'fa-cup', name: 'FA Cup', shortName: 'FA Cup', category: 'Domestic Cup', count: 8,
+    slug: 'fa-cup', image: 'trophy-fa', name: 'FA Cup', shortName: 'FA Cup', category: 'Domestic Cup', count: 8,
     seasons: ['1969–70', '1996–97', '1999–2000', '2006–07', '2008–09', '2009–10', '2011–12', '2017–18'],
     description: 'Eight wins, from the bruising 1970 replay against Leeds to Hazard’s penalty against Manchester United in 2018. Drogba scored in four winning finals.',
     finals: [
@@ -99,7 +99,7 @@ export const HONOURS: Honour[] = [
     keyPlayers: ['didier-drogba', 'peter-osgood', 'dennis-wise', 'gianfranco-zola'], sources: [CFC, WIKI],
   },
   {
-    slug: 'league-cup', name: 'League Cup', shortName: 'League Cup', category: 'Domestic Cup', count: 5,
+    slug: 'league-cup', image: 'trophy-lc', name: 'League Cup', shortName: 'League Cup', category: 'Domestic Cup', count: 5,
     seasons: ['1964–65', '1997–98', '2004–05', '2006–07', '2014–15'],
     description: 'Five wins, including the 2005 final in Cardiff that delivered the first trophy of the José Mourinho era.',
     finals: [
@@ -112,7 +112,7 @@ export const HONOURS: Honour[] = [
     sources: [CFC, WIKI],
   },
   {
-    slug: 'community-shield', name: 'FA Community Shield', shortName: 'Community Shield', category: 'Domestic Cup', count: 4,
+    slug: 'community-shield', image: 'trophy-shield', name: 'FA Community Shield', shortName: 'Community Shield', category: 'Domestic Cup', count: 4,
     seasons: ['1955', '2000', '2005', '2009'],
     description: 'The traditional curtain-raiser, won four times.',
     sources: [WIKI],

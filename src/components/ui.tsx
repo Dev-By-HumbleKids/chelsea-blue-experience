@@ -185,8 +185,16 @@ export function Skeleton({ className }: { className?: string }) {
   return <div className={cx('animate-pulse rounded-xl bg-white/[0.06]', className)} />;
 }
 
-/** Text crest for opponents — real club crests are trademarks and are not reproduced. */
+/** Club crest from the media manifest (private builds); falls back to a text badge in public builds. */
 export function TeamBadge({ short, home, size = 56 }: { short: string; home?: boolean; size?: number }) {
+  const crest = media(`crest-${short}`);
+  if (crest) {
+    return (
+      <span className="inline-flex shrink-0 items-center justify-center" style={{ width: size, height: size }}>
+        <img src={crest.src} alt={crest.alt} className="h-full w-full object-contain drop-shadow-[0_6px_14px_rgba(0,0,0,0.45)]" loading="lazy" />
+      </span>
+    );
+  }
   return (
     <span
       className={cx('inline-flex shrink-0 items-center justify-center rounded-full font-display tracking-wider', home ? 'bg-royal text-ivory ring-2 ring-gold/70' : 'bg-white/[0.06] text-ivory ring-1 ring-white/20')}

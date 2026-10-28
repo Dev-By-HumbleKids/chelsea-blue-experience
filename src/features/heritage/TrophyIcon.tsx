@@ -1,3 +1,4 @@
+import { Img } from '@/components/ui';
 import { useId } from 'react';
 
 /** Original line illustrations of trophy silhouettes (not reproductions of the real trophies). */
@@ -82,5 +83,15 @@ export function TrophyIcon({ slug, className }: { slug: string; className?: stri
       </defs>
       {shape}
     </svg>
+  );
+}
+
+/** Trophy photograph when one is available, otherwise the line illustration on a gold glow. */
+export function TrophyArt({ slug, image, className, iconClassName }: { slug: string; image?: string; className?: string; iconClassName?: string }) {
+  if (image) return <Img id={image} className={className} />;
+  return (
+    <div className={`grid place-items-center bg-[radial-gradient(circle_at_50%_40%,rgba(201,164,92,0.25),transparent_65%)] ${className ?? ''}`}>
+      <TrophyIcon slug={slug} className={iconClassName ?? 'h-1/2 w-1/2'} />
+    </div>
   );
 }
