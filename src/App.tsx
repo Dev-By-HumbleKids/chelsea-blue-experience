@@ -1,5 +1,10 @@
+import { motion } from 'framer-motion';
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter, Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import { Cursor } from '@/components/cinema/Cursor';
+import { Preloader } from '@/components/cinema/Preloader';
+import { RouteCurtain } from '@/components/cinema/RouteCurtain';
+import { scrollToElement, scrollToTop, SmoothScroll } from '@/components/cinema/SmoothScroll';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
@@ -33,11 +38,11 @@ function ScrollManager() {
     if (hash) {
       const el = document.getElementById(hash.slice(1));
       if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+        setTimeout(() => scrollToElement(el), 400);
         return;
       }
     }
-    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+    scrollToTop();
   }, [pathname, hash]);
   return null;
 }
@@ -54,17 +59,24 @@ function Shell() {
   const { pathname } = useLocation();
   return (
     <>
+      <SmoothScroll />
       <ScrollManager />
+      <Preloader />
+      <RouteCurtain />
       <Navbar />
       <main id="main" tabIndex={-1} className="outline-none">
         <ErrorBoundary resetKey={pathname}>
           <Suspense fallback={<PageFallback />}>
-            <Outlet />
+            <motion.div key={pathname} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}>
+              <Outlet />
+            </motion.div>
           </Suspense>
         </ErrorBoundary>
       </main>
       <Footer />
       <Toaster />
+      <Cursor />
+      <div className="film-grain pointer-events-none fixed -inset-[10%] z-[80]" aria-hidden />
     </>
   );
 }

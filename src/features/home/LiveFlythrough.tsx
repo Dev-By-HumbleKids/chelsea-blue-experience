@@ -33,11 +33,21 @@ function Rig({ progress }: { progress: MotionValue<number> }) {
     const p = THREE.MathUtils.clamp(progress.get(), 0, 1);
     smooth.current = THREE.MathUtils.damp(smooth.current, p, 4, delta);
     const t = smooth.current;
+    const time = state.clock.elapsedTime;
     camera.position.copy(posCurve.getPoint(t));
-    // Gentle idle drift so the scene breathes even when the user stops scrolling.
-    camera.position.x += Math.sin(state.clock.elapsedTime * 0.25) * (1 - t) * 6;
+    // Handheld feel: slow drift plus a faint breathing bob, stronger high above the city.
+    camera.position.x += Math.sin(time * 0.25) * (1 - t) * 6 + Math.sin(time * 1.3) * 0.08;
+    camera.position.y += Math.sin(time * 0.9) * 0.12;
     target.current.copy(tgtCurve.getPoint(t));
     camera.lookAt(target.current);
+    camera.rotateZ(Math.sin(time * 0.4) * 0.006 + (t - 0.5) * -0.02);
+    // Dolly zoom as we arrive pitchside.
+    const persp = camera as THREE.PerspectiveCamera;
+    const fov = 42 - THREE.MathUtils.smoothstep(t, 0.72, 1) * 10;
+    if (Math.abs(persp.fov - fov) > 0.01) {
+      persp.fov = fov;
+      persp.updateProjectionMatrix();
+    }
   });
   return null;
 }

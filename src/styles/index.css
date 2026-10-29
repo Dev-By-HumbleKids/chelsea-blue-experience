@@ -16,7 +16,6 @@
 @layer base {
   html {
     @apply bg-midnight text-ivory antialiased;
-    scroll-behavior: smooth;
   }
   html,
   body {
@@ -124,4 +123,87 @@
 @media print {
   header, footer, .no-print { display: none !important; }
   body { background: #fff; color: #000; }
+}
+
+/* ---- Cinema ------------------------------------------------------------------------------ */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Animated film grain over the whole site. */
+.film-grain {
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(6) infinite;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Drifting light leaks for cinematic sections. */
+.light-leak {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.light-leak-a {
+  animation: leak-a 14s ease-in-out infinite alternate;
+}
+.light-leak-b {
+  animation: leak-b 18s ease-in-out infinite alternate;
+}
+@keyframes leak-a {
+  from { transform: translate(-10%, -5%) scale(1); opacity: 0.35; }
+  to { transform: translate(20%, 10%) scale(1.25); opacity: 0.55; }
+}
+@keyframes leak-b {
+  from { transform: translate(10%, 10%) scale(1.1); opacity: 0.25; }
+  to { transform: translate(-15%, -10%) scale(0.9); opacity: 0.45; }
+}
+
+/* Anamorphic lens streak. */
+.lens-streak {
+  background: linear-gradient(90deg, transparent, rgba(160, 196, 255, 0.55) 45%, rgba(255, 255, 255, 0.9) 50%, rgba(160, 196, 255, 0.55) 55%, transparent);
+  filter: blur(1.5px);
+  animation: streak 7s ease-in-out infinite;
+}
+@keyframes streak {
+  0%, 100% { opacity: 0.25; transform: scaleX(0.7); }
+  50% { opacity: 0.7; transform: scaleX(1.1); }
+}
+
+/* Pointer spotlight on cards (position vars are set by the cursor). */
+.surface {
+  background-image: radial-gradient(420px circle at var(--mx, -999px) var(--my, -999px), rgba(91, 143, 214, 0.16), transparent 45%);
+}
+
+@keyframes shine {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+.text-gold-sheen {
+  background-size: 200% 100%;
+  animation: shine 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-grain, .light-leak, .lens-streak, .text-gold-sheen { animation: none !important; }
 }

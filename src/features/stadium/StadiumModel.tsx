@@ -1,3 +1,4 @@
+import { useFrame } from '@react-three/fiber';
 import { useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 
@@ -547,7 +548,63 @@ function Sky() {
   );
 }
 
-export function StadiumModel({ crowd = true, city = true }: { crowd?: boolean; city?: boolean }) {
+/** Volumetric floodlight beams: additive cones from the roof fronts down onto the pitch, gently breathing. */
+function Beams() {
+  const group = useRef<THREE.Group>(null);
+  const tex = useMemo(
+    () =>
+      canvasTexture(4, 256, (g) => {
+        const grad = g.createLinearGradient(0, 0, 0, 256);
+        grad.addColorStop(0, 'rgba(255,255,255,0.95)');
+        grad.addColorStop(0.35, 'rgba(210,228,255,0.35)');
+        grad.addColorStop(1, 'rgba(180,210,255,0)');
+        g.fillStyle = grad;
+        g.fillRect(0, 0, 4, 256);
+      }),
+    [],
+  );
+  const beams = useMemo(() => {
+    const out: { pos: THREE.Vector3; quat: THREE.Quaternion; len: number; radius: number }[] = [];
+    const up = new THREE.Vector3(0, 1, 0);
+    for (const s of STANDS) {
+      const n = s.span > 100 ? 4 : 3;
+      for (let k = 0; k < n; k++) {
+        const u = -s.span / 2 + ((k + 0.5) * s.span) / n;
+        const light = new THREE.Vector3(u, s.roofY - 1.6, s.offset - 5).applyAxisAngle(up, s.angle);
+        const target = new THREE.Vector3(u * 0.55, 0, s.offset * 0.15).applyAxisAngle(up, s.angle);
+        const dir = light.clone().sub(target);
+        const len = dir.length();
+        out.push({
+          pos: light.clone().add(target).multiplyScalar(0.5),
+          quat: new THREE.Quaternion().setFromUnitVectors(up, dir.normalize()),
+          len,
+          radius: 9 + (k % 2) * 3,
+        });
+      }
+    }
+    return out;
+  }, []);
+  useFrame(({ clock }) => {
+    const g = group.current;
+    if (!g) return;
+    g.children.forEach((m, i) => {
+      const mat = (m as THREE.Mesh).material as THREE.MeshBasicMaterial;
+      mat.opacity = 0.075 + Math.sin(clock.elapsedTime * 0.6 + i * 1.7) * 0.025;
+    });
+  });
+  return (
+    <group ref={group}>
+      {beams.map((b, i) => (
+        <mesh key={i} position={b.pos} quaternion={b.quat} renderOrder={2}>
+          <coneGeometry args={[b.radius, b.len, 32, 1, true]} />
+          <meshBasicMaterial map={tex} color="#dbe8ff" transparent opacity={0.08} depthWrite={false} blending={THREE.AdditiveBlending} side={THREE.DoubleSide} toneMapped={false} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+export function StadiumModel({ crowd = true, city = true, beams = true }: { crowd?: boolean; city?: boolean; beams?: boolean }) {
   const pitch = useMemo(pitchTexture, []);
   const facade = useMemo(facadeTexture, []);
   const boxes = useMemo(boxesTexture, []);
@@ -617,6 +674,7 @@ export function StadiumModel({ crowd = true, city = true }: { crowd?: boolean; c
       <CornerStand sx={1} sz={-1} screenTex={screen} />
       <CornerStand sx={-1} sz={1} screenTex={screen} />
       {crowd && <Crowd />}
+      {beams && <Beams />}
       {city && <City />}
     </group>
   );

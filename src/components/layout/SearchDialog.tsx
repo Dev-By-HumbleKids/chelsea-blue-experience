@@ -115,7 +115,7 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
                 </button>
               ))}
             </div>
-            <ul id="search-results" role="listbox" className="max-h-[50vh] overflow-y-auto p-2">
+            <ul id="search-results" role="listbox" data-lenis-prevent className="max-h-[50vh] overflow-y-auto p-2">
               {q && results.length === 0 && <li className="px-4 py-10 text-center text-silver">No results for “{q}”. Try a player, an opponent or a year.</li>}
               {!q && <li className="px-4 py-10 text-center text-silver">Try “Drogba”, “Munich”, “Arsenal” or “tunnel”.</li>}
               {results.map((r, i) => (

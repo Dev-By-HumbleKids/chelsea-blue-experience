@@ -1,6 +1,7 @@
 import { useMeta } from '@/lib/hooks';
+import { CabinetSpotlight } from './CabinetSpotlight';
 import { HeroSequence } from './HeroSequence';
-import { Closing, ExperienceIntro, LatestNews, LegendsRail, Marquee, StadiumTeaser, TrophyShowcase } from './HomeSections';
+import { Closing, ExperienceIntro, LatestNews, LegendsRail, Manifesto, Marquee, StadiumTeaser, TrophyShowcase } from './HomeSections';
 import { NextMatch } from './NextMatch';
 
 export default function HomePage() {
@@ -10,7 +11,9 @@ export default function HomePage() {
       <HeroSequence />
       <NextMatch />
       <Marquee />
+      <Manifesto />
       <ExperienceIntro />
+      <CabinetSpotlight />
       <TrophyShowcase />
       <LegendsRail />
       <StadiumTeaser />

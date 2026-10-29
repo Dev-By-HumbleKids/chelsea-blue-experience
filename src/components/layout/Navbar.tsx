@@ -152,6 +152,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              data-lenis-prevent
               className="fixed inset-x-0 bottom-0 top-[var(--nav-h)] overflow-y-auto bg-midnight/[0.98] backdrop-blur-xl lg:hidden"
             >
               <ul className="container-x flex flex-col py-6">

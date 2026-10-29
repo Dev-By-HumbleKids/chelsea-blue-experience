@@ -1,5 +1,5 @@
-import { motion, type HTMLMotionProps } from 'framer-motion';
-import { forwardRef, useState, type ReactNode } from 'react';
+import { motion, useScroll, useTransform, type HTMLMotionProps } from 'framer-motion';
+import { forwardRef, useRef, useState, type ReactNode } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 import { ImageOff } from 'lucide-react';
 import { media } from '@/data/media';
@@ -45,7 +45,9 @@ export function Img({ id, className, sizes, eager, credit = false }: { id?: stri
     );
   }
   return (
-    <figure className={cx('relative overflow-hidden', className)}>
+    // Only default to `relative` when the caller hasn't positioned the figure itself; Tailwind would
+    // otherwise let `relative` override an `absolute inset-0` passed in.
+    <figure className={cx(!/\b(absolute|fixed)\b/.test(className ?? '') && 'relative', 'overflow-hidden', className)}>
       <img
         src={m.src}
         alt={m.alt}
@@ -72,10 +74,10 @@ export function Reveal({ children, delay = 0, y = 28, className, ...rest }: { ch
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduce ? false : { opacity: 0, y, filter: 'blur(6px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-12% 0px' }}
-      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 1, delay, ease: [0.22, 1, 0.36, 1] }}
       {...rest}
     >
       {children}
@@ -85,34 +87,84 @@ export function Reveal({ children, delay = 0, y = 28, className, ...rest }: { ch
 
 // ---- Typography ------------------------------------------------------------------------
 
+const cinemaEase = [0.22, 1, 0.36, 1] as const;
+
+/** Eyebrow with a gold rule that draws in. */
+function Eyebrow({ children, className }: { children: ReactNode; className?: string }) {
+  const reduce = usePrefersReducedMotion();
+  return (
+    <p className={cx('eyebrow flex items-center gap-4', className)}>
+      <motion.span className="h-px w-12 origin-left bg-gold" initial={reduce ? false : { scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 1, ease: cinemaEase }} />
+      {children}
+    </p>
+  );
+}
+
+/** Title that rises from behind a mask line. */
+function MaskTitle({ as: Tag, className, children, delay = 0 }: { as: 'h1' | 'h2'; className: string; children: ReactNode; delay?: number }) {
+  const reduce = usePrefersReducedMotion();
+  return (
+    <Tag className={cx(className, 'overflow-hidden pb-[0.06em]')}>
+      <motion.span
+        className="block"
+        initial={reduce ? false : { y: '105%', rotate: 2 }}
+        whileInView={{ y: '0%', rotate: 0 }}
+        viewport={{ once: true, margin: '-5% 0px' }}
+        transition={{ duration: 1.15, ease: cinemaEase, delay }}
+      >
+        {children}
+      </motion.span>
+    </Tag>
+  );
+}
+
 export function SectionHeading({ eyebrow, title, intro, align = 'left', className }: { eyebrow?: string; title: ReactNode; intro?: ReactNode; align?: 'left' | 'center'; className?: string }) {
   return (
-    <Reveal className={cx('mb-10 md:mb-14', align === 'center' && 'mx-auto max-w-3xl text-center', className)}>
-      {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-      <h2 className="display text-[44px] sm:text-6xl lg:text-7xl">{title}</h2>
-      {intro && <p className={cx('mt-5 max-w-2xl text-ivory-muted md:text-lg', align === 'center' && 'mx-auto')}>{intro}</p>}
-    </Reveal>
+    <div className={cx('mb-10 md:mb-14', align === 'center' && 'mx-auto max-w-3xl text-center', className)}>
+      {eyebrow && <Eyebrow className={cx('mb-4', align === 'center' && 'justify-center')}>{eyebrow}</Eyebrow>}
+      <MaskTitle as="h2" className="display text-[44px] sm:text-6xl lg:text-7xl">
+        {title}
+      </MaskTitle>
+      {intro && (
+        <Reveal delay={0.2}>
+          <p className={cx('mt-5 max-w-2xl text-ivory-muted md:text-lg', align === 'center' && 'mx-auto')}>{intro}</p>
+        </Reveal>
+      )}
+    </div>
   );
 }
 
 export function PageHero({ eyebrow, title, intro, image, children }: { eyebrow: string; title: ReactNode; intro?: ReactNode; image?: string; children?: ReactNode }) {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = usePrefersReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.22]);
+  const fade = useTransform(scrollYProgress, [0, 0.9], [1, 0.2]);
   return (
-    <header className="relative isolate overflow-hidden pb-14 pt-[calc(var(--nav-h)+56px)] md:pb-20 md:pt-[calc(var(--nav-h)+88px)]">
+    <header ref={ref} className="relative isolate overflow-hidden pb-14 pt-[calc(var(--nav-h)+56px)] md:pb-24 md:pt-[calc(var(--nav-h)+96px)]">
       {image && (
-        <div className="absolute inset-0 -z-10">
-          <Img id={image} eager className="h-full w-full opacity-35" />
-          <div className="absolute inset-0 bg-gradient-to-b from-midnight/60 via-midnight/80 to-midnight" />
-        </div>
+        <motion.div className="absolute inset-0 -z-10" style={reduce ? undefined : { y: imgY, scale: imgScale }}>
+          <motion.div className="h-full w-full" initial={reduce ? false : { scale: 1.25, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 2.2, ease: cinemaEase }}>
+            <Img id={image} eager className="h-full w-full opacity-40" />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/75 to-midnight" />
+        </motion.div>
       )}
-      <div className="absolute -left-40 top-0 -z-10 h-[520px] w-[520px] rounded-full bg-royal/25 blur-[140px]" aria-hidden />
-      <div className="container-x">
-        <Reveal>
-          <p className="eyebrow mb-5">{eyebrow}</p>
-          <h1 className="display max-w-5xl text-[56px] sm:text-7xl lg:text-[112px]">{title}</h1>
-          {intro && <p className="mt-6 max-w-2xl text-lg text-ivory-muted">{intro}</p>}
-        </Reveal>
+      <div className="light-leak light-leak-a -left-40 top-0 -z-10 h-[520px] w-[520px] bg-royal/40" aria-hidden />
+      <div className="light-leak light-leak-b -right-20 top-20 -z-10 h-[360px] w-[360px] bg-gold/20" aria-hidden />
+      <motion.div className="container-x" style={reduce ? undefined : { opacity: fade }}>
+        <Eyebrow className="mb-5">{eyebrow}</Eyebrow>
+        <MaskTitle as="h1" className="display max-w-5xl text-[56px] sm:text-7xl lg:text-[112px]" delay={0.1}>
+          {title}
+        </MaskTitle>
+        {intro && (
+          <Reveal delay={0.35}>
+            <p className="mt-6 max-w-2xl text-lg text-ivory-muted">{intro}</p>
+          </Reveal>
+        )}
         {children}
-      </div>
+      </motion.div>
     </header>
   );
 }

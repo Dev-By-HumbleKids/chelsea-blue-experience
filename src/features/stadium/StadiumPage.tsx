@@ -29,7 +29,7 @@ function Lightbox({ id, onClose }: { id: string; onClose: () => void }) {
   }, [onClose]);
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[80] bg-black/95" role="dialog" aria-modal="true" aria-label="Photo viewer">
-      <div ref={ref} tabIndex={-1} className="h-full w-full cursor-grab overflow-auto outline-none active:cursor-grabbing">
+      <div ref={ref} tabIndex={-1} data-lenis-prevent className="h-full w-full cursor-grab overflow-auto outline-none active:cursor-grabbing">
         {/* Drag-to-explore: the photo is shown larger than the viewport and can be panned. */}
         <Img id={id} eager credit className="h-[130vh] min-w-[130vw]" />
       </div>
