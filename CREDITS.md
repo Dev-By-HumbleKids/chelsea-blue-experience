@@ -62,9 +62,9 @@ All photographs are from Wikimedia Commons and are used under the licences below
 | `l-wise` | @cfcunofficial (Chelsea Debs) London fro | CC BY-SA 2.0 | [Chelsea Legends 1 Inter Forever 4 (28453485028) (cropped).jpg](https://commons.wikimedia.org/wiki/File:Chelsea_Legends_1_Inter_Forever_4_(28453485028)_(cropped).jpg) |
 | `l-tambling` | John Dobson | CC BY-SA 2.0 | [Bobby Tambling (cropped).jpg](https://commons.wikimedia.org/wiki/File:Bobby_Tambling_(cropped).jpg) |
 
-## Club crests (private builds only)
+## Club crests
 
-Club crests, including the Chelsea FC crest, are registered trademarks of their clubs. They are downloaded from English Wikipedia (non-free files) into `public/media/restricted/`, which is git-ignored, and are only shown when `VITE_PUBLIC_SAFE=false` (see `.env.local`). Public builds fall back to an original lion emblem and text badges automatically.
+Club crests, including the Chelsea FC crest, are registered trademarks of their clubs and are shown for illustration only. They come from English Wikipedia (non-free files), live in `public/media/restricted/`, and are shown when `VITE_PUBLIC_SAFE=false`, which the GitHub Pages build sets. With `VITE_PUBLIC_SAFE=true` the site falls back to an original lion emblem and text badges. The browser-tab icon is an original design.
 
 ## Not reproduced
 

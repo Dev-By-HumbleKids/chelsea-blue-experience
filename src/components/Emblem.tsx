@@ -1,8 +1,8 @@
 import { media } from '@/data/media';
 
 /**
- * Site emblem. Private builds show the real Chelsea FC crest (a registered trademark, kept out of
- * public builds); public builds fall back to an original lion-head roundel.
+ * Site emblem. Shows the real Chelsea FC crest (a registered trademark) unless VITE_PUBLIC_SAFE=true,
+ * in which case it falls back to an original lion-head roundel.
  */
 export function Emblem({ size = 40, className }: { size?: number; className?: string }) {
   const crest = media('crest-CHE');

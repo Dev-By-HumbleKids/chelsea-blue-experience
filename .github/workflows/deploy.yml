@@ -26,9 +26,9 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          # Serve under https://<user>.github.io/<repo>/ and keep the public-safe media set.
+          # Serve under https://<user>.github.io/<repo>/ and show the club crests in public/media/restricted.
           BASE: /${{ github.event.repository.name }}/
-          VITE_PUBLIC_SAFE: 'true'
+          VITE_PUBLIC_SAFE: 'false'
       # Single-page app: let GitHub Pages hand unknown paths (deep links, refreshes) to the router.
       - run: cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3

@@ -15,8 +15,8 @@ function asset(id: string, alt: string, credit: string, license: MediaLicense, c
 }
 
 /**
- * Club crests are registered trademarks. They are only used in private builds
- * (VITE_PUBLIC_SAFE=false) and live in public/media/restricted, which is git-ignored.
+ * Club crests are registered trademarks. They live in public/media/restricted and are
+ * shown when VITE_PUBLIC_SAFE=false (the GitHub Pages build sets this).
  */
 const CRESTS: Record<string, [club: string, file: string]> = {
   CHE: ['Chelsea FC', 'Chelsea FC.svg'],

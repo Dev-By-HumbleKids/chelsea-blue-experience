@@ -237,7 +237,7 @@ export function Skeleton({ className }: { className?: string }) {
   return <div className={cx('animate-pulse rounded-xl bg-white/[0.06]', className)} />;
 }
 
-/** Club crest from the media manifest (private builds); falls back to a text badge in public builds. */
+/** Club crest from the media manifest; falls back to a text badge when VITE_PUBLIC_SAFE=true. */
 export function TeamBadge({ short, home, size = 56 }: { short: string; home?: boolean; size?: number }) {
   const crest = media(`crest-${short}`);
   if (crest) {

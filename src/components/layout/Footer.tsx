@@ -48,7 +48,7 @@ export function Footer() {
           <p className="max-w-3xl">
             <strong className="text-ivory/80">Unofficial portfolio project.</strong> Inspired by Chelsea FC, but not affiliated with, endorsed by or operated by Chelsea Football Club. Club names are used only to identify the real-world subject.
             Bookings are simulated and no payments are taken. Photographs are used under their stated Creative Commons licences.
-            {!PUBLIC_SAFE && ' Club crests are trademarks of their respective clubs and appear only in this private preview build.'}
+            {!PUBLIC_SAFE && ' Club crests are trademarks of their respective clubs and are shown for illustration only.'}
           </p>
           <p className="shrink-0">Season data snapshot: {fmtDate(SNAPSHOT_DATE + 'T12:00:00Z', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
         </div>

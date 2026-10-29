@@ -65,7 +65,7 @@ export default function AboutPage() {
         </section>
 
         <section id="credits" className="scroll-mt-28">
-          <SectionHeading eyebrow="Image credits" title="Photography" intro={PUBLIC_SAFE ? 'All photographs come from Wikimedia Commons under the Creative Commons licences listed. Club crests are not reproduced; the site emblem is an original design.' : 'Photographs come from Wikimedia Commons under the Creative Commons licences listed. Club crests are trademarks of their clubs and appear only in this private preview build; public builds replace them automatically.'} />
+          <SectionHeading eyebrow="Image credits" title="Photography" intro={PUBLIC_SAFE ? 'All photographs come from Wikimedia Commons under the Creative Commons licences listed. Club crests are not reproduced; the site emblem is an original design.' : 'Photographs come from Wikimedia Commons under the Creative Commons licences listed. Club crests are trademarks of their clubs, shown for illustration only in this unofficial portfolio project.'} />
           <ul className="divide-y divide-white/[0.06] rounded-[24px] ring-1 ring-white/[0.06]">
             {ALL_MEDIA.map((m) => (
               <li key={m.id} className="flex flex-wrap items-center gap-x-4 gap-y-1 px-5 py-3 text-sm">
