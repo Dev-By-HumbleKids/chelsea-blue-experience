@@ -2,6 +2,8 @@
 
 An immersive, Chelsea FC–inspired digital club experience: a scroll-driven cinematic hero, a 3D Stamford Bridge you can explore, a verified trophy room and legends archive, a season tracker, and a complete **demo** booking system for stadium tours and matchday seats.
 
+**Live demo:** https://koonkira.github.io/chelsea-blue-experience/
+
 > **Unofficial portfolio project.** Inspired by Chelsea FC, but not affiliated with, endorsed by or operated by Chelsea Football Club. Bookings are simulated, no payments are taken, and no real tickets or reservations are created.
 
 ## Highlights
